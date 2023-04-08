@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>E-News</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="/imgs/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli&display=swap" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="/BootstrapVV/styles.css" rel="stylesheet">
+  <script type="text/javascript" src="script.js"></script>
+
+
+
+  <body>
+    <div class="container">
+
+      <div class="navbar-wrapper">
+        <div class="container">
+
+          <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/userpage">E-News</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="/userpage">Home</a></li>
+                  <li><a href="/aboutLoggedin">About</a></li>
+                  <li><a href="/contactLoggedin">Contact</a></li>
+                  <li class="dropdown">
+                    <a href="/userpage" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/worldnews">World News</a></li>
+                      <li><a href="/gaming">Gaming</a></li>
+                      <li><a href="/politics">Politics</a></li>
+                      <li><a href="/sports">Sports</a></li>
+                      <li><a href="/uofc">UofC</a></li>
+                    </ul>
+                  </li>
+                  <div class="welcome">
+                      <h5>Welcome, <%=user.username%>. ___  Status: <%=user.status%>.</h5>
+                      <a href="/"><button style="margin-left: 10px;" type="button" class="login btn btn-primary">Logout</button></a>
+                  </div>
+                  <!-- <div class="nav-buttons">
+
+                  </div> -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        </div>
+      </div>
+
+    <h1>Compose</h1>
+    <form class="" action="/compose" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitle">
+        <label>Post</label>
+        <textarea class="form-control" name="postBody" rows="5" cols="30"></textarea>
+        <h4>Category:</h4>
+        <label for="category" class="sr-only">Category:</label>
+        <select id="category" class="form-control" name="category" required="">
+          <option value="worldnews">World News</option>
+          <option value="politics">Political news</option>
+          <option value="sports">Sports</option>
+          <option value="gaming">Gaming</option>
+          <option value="uofc">UofC</option>
+        </select>
+        <br>
+        <input type="file" name="filename" id="filename">
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+
+<%- include("footer"); -%>

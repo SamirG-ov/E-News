@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>E-News</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="/imgs/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli&display=swap" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="/BootstrapVV/styles.css" rel="stylesheet">
+  <script type="text/javascript" src="script.js"></script>
+
+
+
+  <body>
+    <div class="container">
+
+      <div class="navbar-wrapper">
+        <div class="container">
+
+          <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/userpage">E-News</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="/userpage">Home</a></li>
+                  <li><a href="/aboutLoggedin">About</a></li>
+                  <li><a href="/contactLoggedin">Contact</a></li>
+                  <li class="dropdown">
+                    <a href="/userpage" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/worldnews">World News</a></li>
+                      <li><a href="/gaming">Gaming</a></li>
+                      <li><a href="/politics">Politics</a></li>
+                      <li><a href="/sports">Sports</a></li>
+                      <li><a href="/uofc">UofC</a></li>
+                    </ul>
+                  </li>
+                  <div class="welcome">
+                      <h5>Welcome, <%=user.username%>. ___  Status: <%=user.status%>.</h5>
+                      <a href="/"><button style="margin-left: 10px;" type="button" class="login btn btn-primary">Logout</button></a>
+                  </div>
+                  <!-- <div class="nav-buttons">
+
+                  </div> -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        </div>
+      </div>
+
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="">
+        <h1 class="fw-light">World News</h1>
+          <a href="/compose"><button type="button" name="button">Add News <img src='/imgs/add.png' width='20' /></button></a>
+        <p class="lead text-body-secondary">All the news around the world is here</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album bg-body-tertiary">
+    <div class="ff">
+
+    <%  allArticles.forEach(article => { %>
+    <div class="box">
+      <div class="card shadow-sm">
+        <img class="card-img-top" width="95%" height="225" src="/imgs/<%=article.pic%>" alt="">
+        <div class="card-body">
+          <h4 class="card-text"><%=article.title%></h4>
+          <p class="card-text">  <%=article.content.substring(0, 50) + " ..."%>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="/articles/<%=article.A_ID%>"><button type="button" class="btn btn-sm btn-outline-secondary">Read More</button></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <% }) %>
+
+
+      </div>
+    </div>
+
+
+  <%- include("footer"); -%>
+
+</div>
